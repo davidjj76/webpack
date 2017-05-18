@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
@@ -56,6 +57,9 @@ const config = {
     }]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/assets/index.html'
+    }),
     new ExtractTextWebpackPlugin('styles.css')
   ],
   devServer: {
